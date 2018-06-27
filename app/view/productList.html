@@ -1,0 +1,65 @@
+<div class="card spacer">
+    <div class="card-header" style="text-align: center">{{viewStat==0?'Product List':'Confirmation'}}</div>
+    <div class="card-body" ng-if="viewStat==0">
+
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Keyword" aria-label="Keyword" ng-model="mc"
+                   aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" ng-click="getProductsPage()">Search</button>
+            </div>
+        </div>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Label</th>
+                <th scope="col">Qte</th>
+                <th scope="col">Price</th>
+                <th scope="col">Date</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="p in productsPage.content">
+                <th scope="row">{{p.id}}</th>
+                <td>{{p.label}}</td>
+                <td>{{p.qte}}</td>
+                <td>{{p.price}}</td>
+                <td>{{p.dateSys | date:'fullDate'}}</td>
+                <td ng-controller="ProductAddController">
+                    <button class="btn btn-primary" ng-click="onEdit(p.id)">Edit</button>
+                    <button class="btn btn-primary" ng-click="onRemove(p)">Remove</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item " ng-class="{'disabled':pageNumber==0}" ng-click="onPreviousClick()">
+                    <a class="page-link">Previous</a>
+                </li>
+                <li ng-repeat="p in pageNumbers track by $index" class="page-item"
+                    ng-class="{'active':pageNumber==$index}">
+                    <a class="page-link" ng-click="onPageNumberClick($index)">{{$index+1}}</a>
+                </li>
+                <li class="page-item" ng-class="{'disabled':totalPages-1==pageNumber}" ng-click="onNextClick()">
+                    <a class="page-link">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="card-body" ng-if="viewStat==1">
+        <div style="text-align: center">
+            Do you want to remove the product ({{selectedProduct.label}}) ?
+        </div>
+        <br/>
+        <div class="form-group" style="text-align: center">
+            <button class="btn btn-primary" ng-click="delete()">Delete</button>
+            <button class="btn btn-primary" ng-click="onCancel()">Cancel</button>
+        </div>
+
+    </div>
+</div>
+

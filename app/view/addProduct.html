@@ -1,0 +1,24 @@
+<div class="card spacer">
+    <div class="card-header" style="text-align: center">Create Product</div>
+    <div class="card-body">
+        <div class="form-group">
+            <label>Label :</label>
+            <input type="text" class="form-control" ng-model="product.label" placeholder="Enter Label">
+        </div>
+        <div class="form-group">
+            <label>Qte :</label>
+            <input type="number" class="form-control" ng-model="product.qte" placeholder="Enter Qte">
+        </div>
+        <div class="form-group">
+            <label>Price :</label>
+            <input type="number" class="form-control" ng-model="product.price" placeholder="Enter Price">
+        </div>
+        <div class="form-group">
+            <label>Comment :</label>
+            <input type="text" class="form-control" ng-model="product.comment" placeholder="Enter Comment"/>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" ng-click="create()">Create</button>
+        </div>
+    </div>
+</div>
