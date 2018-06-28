@@ -10,5 +10,8 @@ myAppControllers.controller('DashboardController', ['$scope', function ($scope) 
     $scope.about.appName = 'Product Managment';
     $scope.about.version = '0.1 (angularJs)';
 
+    $scope.getFullName = function (name, pseudo) {
+        return name + ' ' + pseudo;
+    };
 
 }]);
