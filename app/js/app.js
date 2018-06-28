@@ -5,7 +5,8 @@ let myApp = angular.module('myApp', [
     'ngRoute',
     'myAppControllers',
     'myAppServices',
-    'myAppDirectives'
+    'myAppDirectives',
+    'myAppFilters'
 ]);
 
 
@@ -36,7 +37,8 @@ let myAppControllers = angular.module('myAppControllers', []);
 let myAppServices = angular.module('myAppServices', []);
 
 /* Filters */
-let myAppfilters = angular.module('myAppfilters', []);
+let myAppfilters = angular.module('myAppFilters', []);
+
 
 /* Directives */
 let directives = angular.module('myAppDirectives', []);
