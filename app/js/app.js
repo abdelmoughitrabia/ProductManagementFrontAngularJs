@@ -4,7 +4,8 @@
 let myApp = angular.module('myApp', [
     'ngRoute',
     'myAppControllers',
-    'myAppServices'
+    'myAppServices',
+    'myAppDirectives'
 ]);
 
 
@@ -36,3 +37,6 @@ let myAppServices = angular.module('myAppServices', []);
 
 /* Filters */
 let myAppfilters = angular.module('myAppfilters', []);
+
+/* Directives */
+let directives = angular.module('myAppDirectives', []);
